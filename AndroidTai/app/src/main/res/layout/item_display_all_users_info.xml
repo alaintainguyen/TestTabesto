@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    android:id="@+id/layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/border"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/dashboard_meal_image"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:roundingBorderWidth="1dp"
+        app:roundedCornerRadius="5dp"
+        app:placeholderImage="@drawable/ic_launcher_background"/>
+    
+    <TextView
+        android:id="@+id/dashboard_meal_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@id/dashboard_meal_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/dashboard_meal_image"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        tools:text="Croquette pour chat"/>
+
+    <TextView
+        android:id="@+id/dashboard_meal_category"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@id/dashboard_meal_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dashboard_meal_name"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:layout_marginStart="20dp"
+        tools:text="Pork"/>
+
+    <TextView
+        android:id="@+id/dashboard_meal_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/dashboard_meal_image"
+        app:layout_constraintTop_toBottomOf="@id/dashboard_meal_category"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:layout_marginStart="20dp"
+        tools:text="5€"/>
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey_separator"
+        app:layout_constraintTop_toBottomOf="@id/dashboard_meal_image"
+        android:layout_marginTop="10dp"/>
+
+</android.support.constraint.ConstraintLayout>
