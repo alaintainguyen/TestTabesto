@@ -1,19 +1,24 @@
 package com.tai.androidtai.modules.mealDetails;
 
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.tai.androidtai.R;
 import com.tai.androidtai.domain.bean.MealBean;
+import com.tai.androidtai.modules.TabestoSnackbar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MealDetailsActivity extends AppCompatActivity {
+
+    @BindView(R.id.meal_cl)
+    ConstraintLayout mMealLayout;
 
     @BindView(R.id.meal_image)
     SimpleDraweeView mImage;
@@ -65,6 +70,6 @@ public class MealDetailsActivity extends AppCompatActivity {
 
     @OnClick(R.id.meal_order)
     public void order() {
-        Toast.makeText(this, "Votre commande a été prise en compte", Toast.LENGTH_SHORT).show();
+        TabestoSnackbar.make(mMealLayout, "Votre commande a été prise en compte", Snackbar.LENGTH_LONG).show();
     }
 }

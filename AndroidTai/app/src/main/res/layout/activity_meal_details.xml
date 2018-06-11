@@ -7,6 +7,7 @@
     android:layout_height="wrap_content">
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/meal_cl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context="com.tai.androidtai.modules.mealDetails.MealDetailsActivity">
@@ -36,7 +37,7 @@
             android:text="@string/meal_principal_information"
             android:textAlignment="center"
             android:background="@color/colorPrimary"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:padding="10dp"/>
 
@@ -111,7 +112,7 @@
             android:text="@string/meal_description"
             android:textAlignment="center"
             android:background="@color/colorPrimary"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:padding="10dp"/>
 
@@ -141,7 +142,7 @@
             android:text="@string/meal_ingredient"
             android:textAlignment="center"
             android:background="@color/colorPrimary"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:padding="10dp"/>
 
