@@ -72,25 +72,15 @@
             android:padding="10dp"/>
 
         <TextView
-            android:id="@+id/meal_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/meal_principal_information"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            tools:text="Croquette pour chat"/>
-
-        <TextView
             android:id="@+id/meal_category"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/meal_name"
+            app:layout_constraintTop_toBottomOf="@id/meal_principal_information"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             tools:text="Boeuf"/>
 
         <TextView
@@ -105,6 +95,23 @@
             android:layout_marginTop="10dp"
             tools:text="France"/>
 
+        <TextView
+            android:id="@+id/meal_link"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/meal_area"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textColorLink="@color/colorPrimary"
+            android:autoLink="web"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            tools:text="www.example.com"/>
+
         <View
             android:id="@+id/separator_information_principal"
             android:layout_width="match_parent"
@@ -112,7 +119,7 @@
             android:background="@color/colorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/meal_area"
+            app:layout_constraintTop_toBottomOf="@id/meal_link"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp"/>
@@ -251,7 +258,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             style="?android:attr/borderlessButtonStyle"
             />
-
 
     </android.support.constraint.ConstraintLayout>
 

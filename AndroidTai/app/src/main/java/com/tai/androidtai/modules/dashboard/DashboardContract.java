@@ -11,6 +11,8 @@ public interface DashboardContract {
     interface View extends BaseContract.View {
 
         void displayInformation(List<MealBean> userList);
+
+        void hideProgressBar();
     }
 
     interface Presenter extends BaseContract.Presenter {

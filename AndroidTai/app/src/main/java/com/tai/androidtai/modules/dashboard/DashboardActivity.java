@@ -3,6 +3,8 @@ package com.tai.androidtai.modules.dashboard;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import com.tai.androidtai.R;
 import com.tai.androidtai.dagger.components.DashboardComponent;
@@ -23,6 +25,9 @@ public class DashboardActivity extends BaseActivity implements DashboardContract
 
     @BindView(R.id.dashboard_rv)
     RecyclerView mDashboardRecyclerView;
+
+    @BindView(R.id.progressbar_layout)
+    RelativeLayout mProgresBarLayout;
 
     private DashboardListAdapter mDashboardListAdapter;
 
@@ -50,5 +55,10 @@ public class DashboardActivity extends BaseActivity implements DashboardContract
     @Override
     public void displayInformation(List<MealBean> userInfo) {
         mDashboardListAdapter.addInformations(userInfo);
+    }
+
+    @Override
+    public void hideProgressBar() {
+        mProgresBarLayout.setVisibility(View.GONE);
     }
 }

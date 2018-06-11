@@ -50,6 +50,7 @@ public class DashboardPresenter extends BasePresenter implements DashboardContra
         public void onNext(@NonNull DashBoardResponseBean dashBoardResponseBean) {
             if (mView != null) {
                 mView.displayInformation(dashBoardResponseBean.getList());
+                mView.hideProgressBar();
             }
         }
 

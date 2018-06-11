@@ -6,13 +6,8 @@ import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.ImageView;
+import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
-import android.widget.Toolbar;
-import android.widget.VideoView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.tai.androidtai.R;
@@ -31,8 +26,8 @@ public class MealDetailsActivity extends AppCompatActivity {
     @BindView(R.id.meal_image)
     SimpleDraweeView mImage;
 
-    @BindView(R.id.meal_name)
-    TextView mName;
+    @BindView(R.id.meal_link)
+    TextView mLink;
 
     @BindView(R.id.meal_description)
     TextView mDescription;
@@ -88,7 +83,7 @@ public class MealDetailsActivity extends AppCompatActivity {
         mImage.setImageURI(mealBean.getMealImage());
         mVideo.setImageURI(mealBean.getMealImage());
         mTitle.setText(mealBean.getMealName());
-        mName.setText(mealBean.getMealName());
+        mLink.setText(mealBean.getMealLink());
         mArea.setText(mealBean.getMealArea());
         mCategory.setText(mealBean.getMealCategory());
         mDescription.setText(mealBean.getMealDescription());
