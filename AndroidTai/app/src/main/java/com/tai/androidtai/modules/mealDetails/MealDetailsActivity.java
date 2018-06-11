@@ -6,19 +6,25 @@ import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.tai.androidtai.R;
+import com.tai.androidtai.dagger.components.DashboardComponent;
 import com.tai.androidtai.domain.bean.MealBean;
 import com.tai.androidtai.modules.TabestoSnackbar;
+import com.tai.androidtai.modules.core.BaseActivity;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MealDetailsActivity extends AppCompatActivity {
+public class MealDetailsActivity extends BaseActivity implements MealDetailsContract.View {
+
+    @Inject
+    MealDetailsContract.Presenter mPresenter;
 
     @BindView(R.id.meal_cl)
     ConstraintLayout mMealLayout;
@@ -66,6 +72,8 @@ public class MealDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal_details);
         ButterKnife.bind(this);
+        DashboardComponent.Initializer.init(getApplicationComponent(), getActivityModule()).inject(this);
+        mPresenter.subscribe(this);
 
         if (getSupportActionBar() != null) {
             setSupportActionBar(mToolbar);
@@ -101,7 +109,7 @@ public class MealDetailsActivity extends AppCompatActivity {
 
     @OnClick(R.id.meal_movie)
     public void movie() {
-        startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse(mMovieLink)));
+        mPresenter.openMovie(mMovieLink);
     }
 }
 

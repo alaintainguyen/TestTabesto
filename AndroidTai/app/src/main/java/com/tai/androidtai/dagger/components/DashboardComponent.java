@@ -4,6 +4,7 @@ import com.tai.androidtai.dagger.modules.ActivityModule;
 import com.tai.androidtai.dagger.modules.DashboardModule;
 import com.tai.androidtai.dagger.scope.PerActivity;
 import com.tai.androidtai.modules.dashboard.DashboardActivity;
+import com.tai.androidtai.modules.mealDetails.MealDetailsActivity;
 
 import dagger.Component;
 
@@ -27,6 +28,7 @@ public interface DashboardComponent {
         }
     }
 
-    void inject(DashboardActivity activity);
+    void inject(DashboardActivity dashboardActivity);
 
+    void inject(MealDetailsActivity mealDetailsActivity);
 }
