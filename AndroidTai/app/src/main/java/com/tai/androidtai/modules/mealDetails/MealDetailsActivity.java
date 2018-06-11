@@ -96,7 +96,7 @@ public class MealDetailsActivity extends AppCompatActivity {
 
     @OnClick(R.id.meal_order)
     public void order() {
-        TabestoSnackbar.make(mMealLayout, "Votre commande a été prise en compte", Snackbar.LENGTH_LONG).show();
+        TabestoSnackbar.make(mMealLayout, getResources().getString(R.string.meal_complete_order), Snackbar.LENGTH_LONG).show();
     }
 
     @OnClick(R.id.meal_movie)

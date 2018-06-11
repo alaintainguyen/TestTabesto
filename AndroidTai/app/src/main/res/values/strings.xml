@@ -4,4 +4,5 @@
     <string name="meal_description">Description</string>
     <string name="meal_ingredient">Ingrédients</string>
     <string name="meal_order">Commander</string>
+    <string name="meal_complete_order">Votre commande a été prise en compte</string>
 </resources>
