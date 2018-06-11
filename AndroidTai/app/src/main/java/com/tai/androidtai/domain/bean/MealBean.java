@@ -31,6 +31,9 @@ public class MealBean implements Parcelable {
     @SerializedName("strIngredient3")
     private String mMealIngredient3;
 
+    @SerializedName("strYoutube")
+    private String mMealYoutube;
+
     private MealBean(Parcel in) {
         mMealName = in.readString();
         mMealImage = in.readString();
@@ -40,6 +43,7 @@ public class MealBean implements Parcelable {
         mMealIngredient1 = in.readString();
         mMealIngredient2 = in.readString();
         mMealIngredient3 = in.readString();
+        mMealYoutube = in.readString();
     }
 
     @Override
@@ -52,6 +56,7 @@ public class MealBean implements Parcelable {
         dest.writeString(mMealIngredient1);
         dest.writeString(mMealIngredient2);
         dest.writeString(mMealIngredient3);
+        dest.writeString(mMealYoutube);
     }
 
     @Override
@@ -125,5 +130,12 @@ public class MealBean implements Parcelable {
             mMealIngredient3 = "";
         }
         return mMealIngredient3;
+    }
+
+    public String getMealYoutube() {
+        if (mMealYoutube == null) {
+            mMealYoutube = "";
+        }
+        return mMealYoutube;
     }
 }

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.tai.androidtai.R;
 
 public class TabestoSnackbar {
-    
+
     @NonNull
     public static Snackbar make(@NonNull View view, @NonNull CharSequence text, int duration) {
         Snackbar snackbar = Snackbar.make(view, text, duration);

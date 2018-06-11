@@ -1,10 +1,16 @@
 package com.tai.androidtai.modules.mealDetails;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.tai.androidtai.R;
@@ -47,6 +53,11 @@ public class MealDetailsActivity extends AppCompatActivity {
     @BindView(R.id.meal_ingredient3)
     TextView mIngredient3;
 
+    @BindView(R.id.meal_movie)
+    SimpleDraweeView mVideo;
+
+    private String mMovieLink;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +69,7 @@ public class MealDetailsActivity extends AppCompatActivity {
 
     private void displayAllMealInformation(MealBean mealBean, String price) {
         mImage.setImageURI(mealBean.getMealImage());
+        mVideo.setImageURI(mealBean.getMealImage());
         mName.setText(mealBean.getMealName());
         mArea.setText(mealBean.getMealArea());
         mCategory.setText(mealBean.getMealCategory());
@@ -66,10 +78,17 @@ public class MealDetailsActivity extends AppCompatActivity {
         mIngredient1.setText(mealBean.getMealIngredient1());
         mIngredient2.setText(mealBean.getMealIngredient2());
         mIngredient3.setText(mealBean.getMealIngredient3());
+        mMovieLink = mealBean.getMealYoutube();
     }
 
     @OnClick(R.id.meal_order)
     public void order() {
         TabestoSnackbar.make(mMealLayout, "Votre commande a été prise en compte", Snackbar.LENGTH_LONG).show();
     }
+
+    @OnClick(R.id.meal_movie)
+    public void movie() {
+        startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse(mMovieLink)));
+    }
 }
+
