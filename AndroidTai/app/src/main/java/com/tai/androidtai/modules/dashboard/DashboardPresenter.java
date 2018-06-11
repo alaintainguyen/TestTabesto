@@ -40,8 +40,8 @@ public class DashboardPresenter extends BasePresenter implements DashboardContra
         }
     }
 
-    public void goToMealDetails(MealBean mealBean) {
-        mRouter.goToMealDetails(mealBean);
+    public void goToMealDetails(MealBean mealBean, String price) {
+        mRouter.goToMealDetails(mealBean, price);
     }
 
     protected class GetInfoSubscriber extends ResourceObserver<DashBoardResponseBean> {

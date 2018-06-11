@@ -17,11 +17,11 @@ public interface DashboardContract {
 
         void getInfo();
 
-        void goToMealDetails(MealBean mealBean);
+        void goToMealDetails(MealBean mealBean, String price);
     }
 
     interface Router extends BaseContract.Router {
-        void goToMealDetails(MealBean mealBean);
+        void goToMealDetails(MealBean mealBean, String price);
     }
 
 }

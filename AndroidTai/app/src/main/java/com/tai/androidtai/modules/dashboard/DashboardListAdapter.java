@@ -41,12 +41,13 @@ public class DashboardListAdapter extends RecyclerView.Adapter<DashboardListAdap
     public void onBindViewHolder(@NonNull DashboardViewHolder holder, int position) {
         Random r = new Random();
         int price = r.nextInt(10 - 2) + 2;
+        String rprice = String.valueOf(price).concat("€");
         MealBean mealBean = (MealBean) mItems.get(position);
         holder.mMealName.setText(mealBean.getMealName());
         holder.mMealImage.setImageURI(mealBean.getMealImage());
         holder.mMealCategory.setText(mealBean.getMealCategory());
-        holder.mMealPrice.setText(String.valueOf(price).concat("€"));
-        holder.mLayout.setOnClickListener(v -> mPresenter.goToMealDetails(mealBean));
+        holder.mMealPrice.setText(rprice);
+        holder.mLayout.setOnClickListener(v -> mPresenter.goToMealDetails(mealBean, rprice));
     }
 
     @Override

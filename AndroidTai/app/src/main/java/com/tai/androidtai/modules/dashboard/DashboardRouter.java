@@ -15,8 +15,10 @@ public class DashboardRouter implements DashboardContract.Router {
     }
 
     @Override
-    public void goToMealDetails(MealBean mealBean) {
+    public void goToMealDetails(MealBean mealBean, String price) {
         Intent intent = new Intent(mActivity, MealDetailsActivity.class);
+        intent.putExtra("meal", mealBean);
+        intent.putExtra("price", price);
         mActivity.startActivity(intent);
     }
 }
