@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 import android.widget.VideoView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -56,6 +58,12 @@ public class MealDetailsActivity extends AppCompatActivity {
     @BindView(R.id.meal_movie)
     SimpleDraweeView mVideo;
 
+    @BindView(R.id.toolbar)
+    android.support.v7.widget.Toolbar mToolbar;
+
+    @BindView(R.id.meal_title)
+    TextView mTitle;
+
     private String mMovieLink;
 
     @Override
@@ -64,12 +72,22 @@ public class MealDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_meal_details);
         ButterKnife.bind(this);
 
+        if (getSupportActionBar() != null) {
+            setSupportActionBar(mToolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
+        mToolbar.setNavigationIcon(R.drawable.back_arrow);
+        mToolbar.setNavigationOnClickListener(view -> finish());
+
         displayAllMealInformation(getIntent().getParcelableExtra("meal"), getIntent().getStringExtra("price"));
     }
 
     private void displayAllMealInformation(MealBean mealBean, String price) {
         mImage.setImageURI(mealBean.getMealImage());
         mVideo.setImageURI(mealBean.getMealImage());
+        mTitle.setText(mealBean.getMealName());
         mName.setText(mealBean.getMealName());
         mArea.setText(mealBean.getMealArea());
         mCategory.setText(mealBean.getMealCategory());
