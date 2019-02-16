@@ -1,10 +1,9 @@
 package com.tai.androidtai.dagger.components;
 
-import android.support.v7.app.AppCompatActivity;
-
 import com.tai.androidtai.dagger.modules.ActivityModule;
 import com.tai.androidtai.dagger.scope.PerActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
 import dagger.Component;
 
 /**

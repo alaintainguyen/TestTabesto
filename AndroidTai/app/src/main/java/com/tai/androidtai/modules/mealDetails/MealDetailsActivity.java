@@ -1,22 +1,19 @@
 package com.tai.androidtai.modules.mealDetails;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
+
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.tai.androidtai.R;
 import com.tai.androidtai.dagger.components.DashboardComponent;
 import com.tai.androidtai.domain.bean.MealBean;
-import com.tai.androidtai.modules.TabestoSnackbar;
 import com.tai.androidtai.modules.core.BaseActivity;
 
 import javax.inject.Inject;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -60,7 +57,7 @@ public class MealDetailsActivity extends BaseActivity implements MealDetailsCont
     SimpleDraweeView mVideo;
 
     @BindView(R.id.toolbar)
-    android.support.v7.widget.Toolbar mToolbar;
+    Toolbar mToolbar;
 
     @BindView(R.id.meal_title)
     TextView mTitle;
@@ -100,11 +97,6 @@ public class MealDetailsActivity extends BaseActivity implements MealDetailsCont
         mIngredient2.setText(mealBean.getMealIngredient2());
         mIngredient3.setText(mealBean.getMealIngredient3());
         mMovieLink = mealBean.getMealYoutube();
-    }
-
-    @OnClick(R.id.meal_order)
-    public void order() {
-        TabestoSnackbar.make(mMealLayout, getResources().getString(R.string.meal_complete_order), Snackbar.LENGTH_LONG).show();
     }
 
     @OnClick(R.id.meal_movie)

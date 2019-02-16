@@ -1,7 +1,5 @@
 package com.tai.androidtai.dagger.modules;
 
-import android.support.v7.app.AppCompatActivity;
-
 import com.tai.androidtai.dagger.scope.PerActivity;
 import com.tai.androidtai.domain.usecase.DashboardUseCase;
 import com.tai.androidtai.modules.dashboard.DashboardContract;
@@ -11,6 +9,7 @@ import com.tai.androidtai.modules.mealDetails.MealDetailsContract;
 import com.tai.androidtai.modules.mealDetails.MealDetailsPresenter;
 import com.tai.androidtai.modules.mealDetails.MealDetailsRouter;
 
+import androidx.appcompat.app.AppCompatActivity;
 import dagger.Module;
 import dagger.Provides;
 

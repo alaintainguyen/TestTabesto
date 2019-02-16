@@ -1,9 +1,10 @@
 package com.tai.androidtai.dagger.modules;
 
-import android.support.v7.app.AppCompatActivity;
 
 import com.tai.androidtai.dagger.scope.PerActivity;
+import com.tai.androidtai.modules.core.BaseActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
 import dagger.Module;
 import dagger.Provides;
 
@@ -14,7 +15,7 @@ import dagger.Provides;
 public class ActivityModule {
     private final AppCompatActivity mActivity;
 
-    public ActivityModule(AppCompatActivity activity) {
+    public ActivityModule(BaseActivity activity) {
         mActivity = activity;
     }
 

@@ -2,7 +2,8 @@ package com.tai.androidtai.modules.mealDetails;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MealDetailsRouter implements MealDetailsContract.Router {
 

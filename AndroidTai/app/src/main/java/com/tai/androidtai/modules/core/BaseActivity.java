@@ -1,11 +1,12 @@
 package com.tai.androidtai.modules.core;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.tai.androidtai.AndroidTaiApplication;
 import com.tai.androidtai.dagger.components.AndroidTaiComponent;
 import com.tai.androidtai.dagger.modules.ActivityModule;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public abstract class BaseActivity extends AppCompatActivity implements BaseContract.View {
 

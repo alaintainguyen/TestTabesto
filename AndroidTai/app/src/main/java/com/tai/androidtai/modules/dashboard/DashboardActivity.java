@@ -1,8 +1,6 @@
 package com.tai.androidtai.modules.dashboard;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.RelativeLayout;
 
@@ -15,6 +13,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -25,9 +25,6 @@ public class DashboardActivity extends BaseActivity implements DashboardContract
 
     @BindView(R.id.dashboard_rv)
     RecyclerView mDashboardRecyclerView;
-
-    @BindView(R.id.progressbar_layout)
-    RelativeLayout mProgresBarLayout;
 
     private DashboardListAdapter mDashboardListAdapter;
 
@@ -40,7 +37,7 @@ public class DashboardActivity extends BaseActivity implements DashboardContract
         mPresenter.subscribe(this);
         mDashboardListAdapter = new DashboardListAdapter(mPresenter);
         mDashboardRecyclerView.setHasFixedSize(true);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         mDashboardRecyclerView.setLayoutManager(layoutManager);
         mDashboardRecyclerView.setAdapter(mDashboardListAdapter);
         mPresenter.getInfo();
@@ -59,6 +56,6 @@ public class DashboardActivity extends BaseActivity implements DashboardContract
 
     @Override
     public void hideProgressBar() {
-        mProgresBarLayout.setVisibility(View.GONE);
+        // Nothing to do
     }
 }

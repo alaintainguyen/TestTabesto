@@ -1,10 +1,11 @@
 package com.tai.androidtai.modules.dashboard;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 
 import com.tai.androidtai.domain.bean.MealBean;
 import com.tai.androidtai.modules.mealDetails.MealDetailsActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class DashboardRouter implements DashboardContract.Router {
 
