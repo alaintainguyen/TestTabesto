@@ -6,7 +6,6 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.tai.androidtai.R;
-import com.tai.androidtai.dagger.components.DashboardComponent;
 import com.tai.androidtai.domain.bean.MealBean;
 import com.tai.androidtai.modules.core.BaseActivity;
 
@@ -17,6 +16,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import dagger.android.AndroidInjection;
 
 public class MealDetailsActivity extends BaseActivity implements MealDetailsContract.View {
 
@@ -69,7 +69,7 @@ public class MealDetailsActivity extends BaseActivity implements MealDetailsCont
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal_details);
         ButterKnife.bind(this);
-        DashboardComponent.Initializer.Companion.init(getApplicationComponent(), getActivityModule()).inject(this);
+        AndroidInjection.inject(this);
         mPresenter.subscribe(this);
 
         if (getSupportActionBar() != null) {

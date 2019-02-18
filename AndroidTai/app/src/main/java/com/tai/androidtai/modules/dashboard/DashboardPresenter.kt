@@ -34,7 +34,7 @@ class DashboardPresenter(private val mRouter: DashboardContract.Router, private 
     }
 
     override fun goToMealDetails(mealBean: MealBean, price: String) {
-        mRouter.goToMealDetails(mealBean, price)
+        mRouter.goToMealDetails(mealBean, price, mView)
     }
 
     private inner class GetInfoSubscriber : ResourceObserver<DashBoardResponseBean>() {

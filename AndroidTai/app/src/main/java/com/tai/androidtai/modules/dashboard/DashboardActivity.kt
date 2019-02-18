@@ -3,7 +3,6 @@ package com.tai.androidtai.modules.dashboard
 import android.os.Bundle
 
 import com.tai.androidtai.R
-import com.tai.androidtai.dagger.components.DashboardComponent
 import com.tai.androidtai.domain.bean.MealBean
 import com.tai.androidtai.modules.core.BaseActivity
 
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
 import butterknife.ButterKnife
+import dagger.android.AndroidInjection
 
 class DashboardActivity : BaseActivity(), DashboardContract.View {
 
@@ -28,7 +28,7 @@ class DashboardActivity : BaseActivity(), DashboardContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
         ButterKnife.bind(this)
-        DashboardComponent.Initializer.init(applicationComponent, activityModule).inject(this)
+        AndroidInjection.inject(this)
         mPresenter.subscribe(this)
         mDashboardListAdapter = DashboardListAdapter(mPresenter)
         mDashboardRecyclerView.setHasFixedSize(true)

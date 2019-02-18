@@ -20,7 +20,7 @@ interface DashboardContract {
     }
 
     interface Router : BaseContract.Router {
-        fun goToMealDetails(mealBean: MealBean, price: String)
+        fun goToMealDetails(mealBean: MealBean, price: String, view: View?)
     }
 
 }
