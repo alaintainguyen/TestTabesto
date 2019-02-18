@@ -13,7 +13,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/dashboard_meal_image"
+        android:id="@+id/dashboard_image"
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:layout_marginStart="10dp"
@@ -24,55 +24,55 @@
         app:placeholderImage="@drawable/ic_launcher_background"/>
     
     <TextView
-        android:id="@+id/dashboard_meal_name"
+        android:id="@+id/dashboard_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@id/dashboard_meal_image"
+        app:layout_constraintStart_toEndOf="@id/dashboard_image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/dashboard_meal_image"
+        app:layout_constraintTop_toTopOf="@id/dashboard_image"
         android:ellipsize="end"
         android:maxLines="1"
         android:singleLine="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
-        tools:text="Croquette pour chat"/>
+        tools:text="Arthur"/>
 
     <TextView
-        android:id="@+id/dashboard_meal_category"
+        android:id="@+id/dashboard_status"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@id/dashboard_meal_image"
+        app:layout_constraintStart_toEndOf="@id/dashboard_image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dashboard_meal_name"
+        app:layout_constraintTop_toBottomOf="@id/dashboard_name"
         android:ellipsize="end"
         android:maxLines="1"
         android:singleLine="true"
         android:layout_marginStart="20dp"
-        tools:text="Pork"/>
+        tools:text="Minimoy"/>
 
     <TextView
-        android:id="@+id/dashboard_meal_price"
+        android:id="@+id/dashboard_gender"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/dashboard_meal_image"
-        app:layout_constraintTop_toBottomOf="@id/dashboard_meal_category"
+        app:layout_constraintStart_toEndOf="@id/dashboard_image"
+        app:layout_constraintTop_toBottomOf="@id/dashboard_status"
         app:layout_constraintEnd_toEndOf="parent"
         android:ellipsize="end"
         android:maxLines="1"
         android:singleLine="true"
         android:layout_marginStart="20dp"
-        tools:text="5€"/>
+        tools:text="Male"/>
 
     <View
         android:id="@+id/separator"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/grey_separator"
-        app:layout_constraintTop_toBottomOf="@id/dashboard_meal_image"
+        app:layout_constraintTop_toBottomOf="@id/dashboard_image"
         android:layout_marginTop="10dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
