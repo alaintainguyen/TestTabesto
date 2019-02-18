@@ -41,7 +41,6 @@ class DashboardPresenter(private val mRouter: DashboardContract.Router, private 
 
         override fun onNext(@NonNull dashBoardResponseBean: DashBoardResponseBean) {
             mView?.displayInformation(dashBoardResponseBean.mResultBean)
-            mView?.hideProgressBar()
         }
 
         override fun onError(@NonNull e: Throwable) {

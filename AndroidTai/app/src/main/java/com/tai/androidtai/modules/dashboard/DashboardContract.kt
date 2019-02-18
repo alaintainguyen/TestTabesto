@@ -9,7 +9,6 @@ interface DashboardContract {
 
         fun displayInformation(userList: List<ResultBean>?)
 
-        fun hideProgressBar()
     }
 
     interface Presenter : BaseContract.Presenter {

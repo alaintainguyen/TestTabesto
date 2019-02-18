@@ -47,7 +47,4 @@ class DashboardActivity : BaseActivity(), DashboardContract.View {
         mDashboardListAdapter.addInformations(userList!!)
     }
 
-    override fun hideProgressBar() {
-        // Nothing to do
-    }
 }
