@@ -64,7 +64,6 @@ class DashboardListAdapter internal constructor(private val mPresenter: Dashboar
         lateinit var mMealImage: SimpleDraweeView
 
         init {
-
             ButterKnife.bind(this, itemView)
         }
     }
