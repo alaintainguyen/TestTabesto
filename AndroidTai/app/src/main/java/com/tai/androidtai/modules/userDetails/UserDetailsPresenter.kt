@@ -1,9 +1,9 @@
-package com.tai.androidtai.modules.mealDetails
+package com.tai.androidtai.modules.userDetails
 
 import com.tai.androidtai.modules.core.BaseContract
 import com.tai.androidtai.modules.core.BasePresenter
 
-class MealDetailsPresenter(private val mRouter: MealDetailsContract.Router) : BasePresenter(), MealDetailsContract.Presenter {
+class UserDetailsPresenter(private val mRouter: UserDetailsContract.Router) : BasePresenter(), UserDetailsContract.Presenter {
 
     override fun subscribe(view: BaseContract.View) {
         // Nothing to do

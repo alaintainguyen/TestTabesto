@@ -29,12 +29,12 @@ class DashboardListAdapter internal constructor(private val mPresenter: Dashboar
         val r = Random()
         val price = r.nextInt(10 - 2) + 2
         val rprice = price.toString() + "€"
-        val mealBean = mItems[position] as ResultBean
-        holder.mMealName.text = mealBean.mealName
-        holder.mMealImage.setImageURI(mealBean.mealImage)
-        holder.mMealCategory.text = mealBean.mealCategory
+        val resultBean = mItems[position] as ResultBean
+        holder.mMealName.text = resultBean.getName()
+        holder.mMealImage.setImageURI(resultBean.getImageUrl())
+        holder.mMealCategory.text = resultBean.getStatus()
         holder.mMealPrice.text = rprice
-        holder.mLayout.setOnClickListener { v -> mPresenter.goToMealDetails(mealBean, rprice) }
+//        holder.mLayout.setOnClickListener { v -> mPresenter.goToMealDetails(resultBean, rprice) }
     }
 
     override fun getItemCount(): Int {

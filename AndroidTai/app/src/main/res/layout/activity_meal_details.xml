@@ -10,7 +10,7 @@
         android:id="@+id/meal_cl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context="com.tai.androidtai.modules.mealDetails.MealDetailsActivity">
+        tools:context="com.tai.androidtai.modules.userDetails.UserDetailsActivity">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"

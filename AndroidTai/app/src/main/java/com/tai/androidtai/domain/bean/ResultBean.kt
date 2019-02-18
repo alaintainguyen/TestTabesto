@@ -8,144 +8,79 @@ import com.google.gson.annotations.SerializedName
 
 class ResultBean private constructor(parcel: Parcel) : Parcelable {
 
+    @SerializedName("id")
+    private var mId: Int? = null
+
     @SerializedName("name")
-    private var mMealName: String? = null
+    private var mName: String? = ""
 
     @SerializedName("status")
-    private var mStatus: String? = null
+    private var mStatus: String? = ""
 
     @SerializedName("species")
-    private var mSpecies: String? = null
+    private var mSpecies: String? = ""
 
     @SerializedName("gender")
-    private var mGender: String? = null
+    private var mGender: String? = ""
 
-    @SerializedName("strArea")
-    private var mMealArea: String? = null
-
-    @SerializedName("strIngredient1")
-    private var mMealIngredient1: String? = null
-
-    @SerializedName("strIngredient2")
-    private var mMealIngredient2: String? = null
-
-    @SerializedName("strIngredient3")
-    private var mMealIngredient3: String? = null
-
-    @SerializedName("strYoutube")
-    private var mMealYoutube: String? = null
-
-    @SerializedName("strSource")
-    private var mMealLink: String? = null
-
-    val mealName: String
-        get() {
-            if (mMealName == null) {
-                mMealName = ""
-            }
-            return mMealName!!
-        }
-
-    val mealImage: String
-        get() {
-            if (mStatus == null) {
-                mStatus = ""
-            }
-            return mStatus!!
-        }
-
-    val mealCategory: String
-        get() {
-            if (mSpecies == null) {
-                mSpecies = ""
-            }
-            return mSpecies!!
-        }
-
-    val mealDescription: String
-        get() {
-            if (mGender == null) {
-                mGender = ""
-            }
-            return mGender!!
-        }
-
-    val mealArea: String
-        get() {
-            if (mMealArea == null) {
-                mMealArea = ""
-            }
-            return mMealArea!!
-        }
-
-    val mealIngredient1: String
-        get() {
-            if (mMealIngredient1 == null) {
-                mMealIngredient1 = ""
-            }
-            return mMealIngredient1!!
-        }
-
-    val mealIngredient2: String
-        get() {
-            if (mMealIngredient2 == null) {
-                mMealIngredient2 = ""
-            }
-            return mMealIngredient2!!
-        }
-
-    val mealIngredient3: String
-        get() {
-            if (mMealIngredient3 == null) {
-                mMealIngredient3 = ""
-            }
-            return mMealIngredient3!!
-        }
-
-    val mealYoutube: String
-        get() {
-            if (mMealYoutube == null) {
-                mMealYoutube = ""
-            }
-            return mMealYoutube!!
-        }
-
-    val mealLink: String
-        get() {
-            if (mMealLink == null) {
-                mMealLink = ""
-            }
-            return mMealLink!!
-        }
+    @SerializedName("image")
+    private var mImageUrl: String? = ""
 
     init {
-        mMealName = parcel.readString()
+        mId = parcel.readInt()
+        mName = parcel.readString()
         mStatus = parcel.readString()
         mSpecies = parcel.readString()
         mGender = parcel.readString()
-        mMealArea = parcel.readString()
-        mMealIngredient1 = parcel.readString()
-        mMealIngredient2 = parcel.readString()
-        mMealIngredient3 = parcel.readString()
-        mMealYoutube = parcel.readString()
-        mMealLink = parcel.readString()
+        mImageUrl = parcel.readString()
     }
 
     override fun writeToParcel(dest: Parcel, flags: Int) {
-        dest.writeString(mMealName)
+        dest.writeInt(mId!!)
+        dest.writeString(mName)
         dest.writeString(mStatus)
         dest.writeString(mSpecies)
         dest.writeString(mGender)
-        dest.writeString(mMealArea)
-        dest.writeString(mMealIngredient1)
-        dest.writeString(mMealIngredient2)
-        dest.writeString(mMealIngredient3)
-        dest.writeString(mMealYoutube)
-        dest.writeString(mMealLink)
+        dest.writeString(mImageUrl)
     }
 
     override fun describeContents(): Int {
         return 0
+    }
+
+    fun getName(): String {
+        if (mName == null) {
+            mName = ""
+        }
+        return mName!!
+    }
+
+    fun getStatus(): String {
+        if (mStatus == null) {
+            mStatus = ""
+        }
+        return mStatus!!
+    }
+
+    fun getSpecies(): String {
+        if (mSpecies == null) {
+            mSpecies = ""
+        }
+        return mSpecies!!
+    }
+
+    fun getGender(): String {
+        if (mGender == null) {
+            mGender = ""
+        }
+        return mGender!!
+    }
+
+    fun getImageUrl(): String {
+        if (mImageUrl == null) {
+            mImageUrl = ""
+        }
+        return mImageUrl!!
     }
 
     companion object {

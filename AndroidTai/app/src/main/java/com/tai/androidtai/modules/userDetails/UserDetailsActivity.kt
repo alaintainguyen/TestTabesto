@@ -1,4 +1,4 @@
-package com.tai.androidtai.modules.mealDetails
+package com.tai.androidtai.modules.userDetails
 
 import android.os.Bundle
 
@@ -17,10 +17,10 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import dagger.android.AndroidInjection
 
-class MealDetailsActivity : BaseActivity(), MealDetailsContract.View {
+class UserDetailsActivity : BaseActivity(), UserDetailsContract.View {
 
     @Inject
-    lateinit var mPresenter: MealDetailsContract.Presenter
+    lateinit var mPresenter: UserDetailsContract.Presenter
 
     @BindView(R.id.meal_cl)
     lateinit var mMealLayout: ConstraintLayout
@@ -83,18 +83,18 @@ class MealDetailsActivity : BaseActivity(), MealDetailsContract.View {
     }
 
     private fun displayAllMealInformation(resultBean: ResultBean, price: String) {
-        mImage.setImageURI(resultBean.mealImage)
-        mVideo.setImageURI(resultBean.mealImage)
-        mTitle.text = resultBean.mealName
-        mLink.text = resultBean.mealLink
-        mArea.text = resultBean.mealArea
-        mCategory.text = resultBean.mealCategory
-        mDescription.text = resultBean.mealDescription
-        mPrice.text = price
-        mIngredient1.text = resultBean.mealIngredient1
-        mIngredient2.text = resultBean.mealIngredient2
-        mIngredient3.text = resultBean.mealIngredient3
-        mMovieLink = resultBean.mealYoutube
+//        mImage.setImageURI(resultBean.mealImage)
+//        mVideo.setImageURI(resultBean.mealImage)
+//        mTitle.text = resultBean.mealName
+//        mLink.text = resultBean.mealLink
+//        mArea.text = resultBean.mealArea
+//        mCategory.text = resultBean.mealCategory
+//        mDescription.text = resultBean.mealDescription
+//        mPrice.text = price
+//        mIngredient1.text = resultBean.mealIngredient1
+//        mIngredient2.text = resultBean.mealIngredient2
+//        mIngredient3.text = resultBean.mealIngredient3
+//        mMovieLink = resultBean.mealYoutube
     }
 
 }

@@ -1,8 +1,8 @@
-package com.tai.androidtai.modules.mealDetails
+package com.tai.androidtai.modules.userDetails
 
 import com.tai.androidtai.modules.core.BaseContract
 
-interface MealDetailsContract {
+interface UserDetailsContract {
 
     interface View : BaseContract.View
 
