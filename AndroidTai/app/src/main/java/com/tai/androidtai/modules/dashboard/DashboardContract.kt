@@ -1,6 +1,5 @@
 package com.tai.androidtai.modules.dashboard
 
-
 import com.tai.androidtai.domain.bean.MealBean
 import com.tai.androidtai.modules.core.BaseContract
 

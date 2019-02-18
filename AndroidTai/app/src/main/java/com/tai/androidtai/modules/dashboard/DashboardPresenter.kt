@@ -12,7 +12,12 @@ import io.reactivex.annotations.NonNull
 import io.reactivex.observers.ResourceObserver
 
 class DashboardPresenter(private val mRouter: DashboardContract.Router, private val mDashboardUseCase: DashboardUseCase) : BasePresenter(), DashboardContract.Presenter {
+
     private var mView: DashboardContract.View? = null
+
+    companion object {
+        private val TAG = DashboardPresenter::class.java.simpleName
+    }
 
     override fun getInfo() {
         mDashboardUseCase.execute(GetInfoSubscriber(), DashboardUseCase.Params())
@@ -32,13 +37,11 @@ class DashboardPresenter(private val mRouter: DashboardContract.Router, private 
         mRouter.goToMealDetails(mealBean, price)
     }
 
-    protected inner class GetInfoSubscriber : ResourceObserver<DashBoardResponseBean>() {
+    private inner class GetInfoSubscriber : ResourceObserver<DashBoardResponseBean>() {
 
         override fun onNext(@NonNull dashBoardResponseBean: DashBoardResponseBean) {
-            if (mView != null) {
-                mView!!.displayInformation(dashBoardResponseBean.list)
-                mView!!.hideProgressBar()
-            }
+            mView?.displayInformation(dashBoardResponseBean.list)
+            mView?.hideProgressBar()
         }
 
         override fun onError(@NonNull e: Throwable) {
@@ -50,8 +53,5 @@ class DashboardPresenter(private val mRouter: DashboardContract.Router, private 
         }
     }
 
-    companion object {
 
-        private val TAG = DashboardPresenter::class.java.simpleName
-    }
 }

@@ -17,34 +17,34 @@ import butterknife.ButterKnife
 class DashboardActivity : BaseActivity(), DashboardContract.View {
 
     @Inject
-    internal var mPresenter: DashboardContract.Presenter? = null
+    lateinit var mPresenter: DashboardContract.Presenter
 
     @BindView(R.id.dashboard_rv)
-    internal var mDashboardRecyclerView: RecyclerView? = null
+    lateinit var mDashboardRecyclerView: RecyclerView
 
-    private var mDashboardListAdapter: DashboardListAdapter? = null
+    lateinit var mDashboardListAdapter: DashboardListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
         ButterKnife.bind(this)
         DashboardComponent.Initializer.init(applicationComponent, activityModule).inject(this)
-        mPresenter!!.subscribe(this)
+        mPresenter.subscribe(this)
         mDashboardListAdapter = DashboardListAdapter(mPresenter)
-        mDashboardRecyclerView!!.setHasFixedSize(true)
+        mDashboardRecyclerView.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        mDashboardRecyclerView!!.layoutManager = layoutManager
-        mDashboardRecyclerView!!.adapter = mDashboardListAdapter
-        mPresenter!!.getInfo()
+        mDashboardRecyclerView.layoutManager = layoutManager
+        mDashboardRecyclerView.adapter = mDashboardListAdapter
+        mPresenter.getInfo()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        mPresenter!!.unsubscribe(this)
+        mPresenter.unsubscribe(this)
     }
 
     override fun displayInformation(userInfo: List<MealBean>) {
-        mDashboardListAdapter!!.addInformations(userInfo)
+        mDashboardListAdapter.addInformations(userInfo)
     }
 
     override fun hideProgressBar() {

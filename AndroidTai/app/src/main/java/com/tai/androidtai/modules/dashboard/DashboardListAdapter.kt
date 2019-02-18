@@ -18,11 +18,7 @@ import butterknife.ButterKnife
 
 class DashboardListAdapter internal constructor(private val mPresenter: DashboardContract.Presenter) : RecyclerView.Adapter<DashboardListAdapter.DashboardViewHolder>() {
 
-    private val mItems: ArrayList<Any>
-
-    init {
-        mItems = ArrayList()
-    }
+    private val mItems: ArrayList<Any> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashboardViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_display_all_users_info, parent, false)
@@ -34,38 +30,38 @@ class DashboardListAdapter internal constructor(private val mPresenter: Dashboar
         val price = r.nextInt(10 - 2) + 2
         val rprice = price.toString() + "€"
         val mealBean = mItems[position] as MealBean
-        holder.mMealName!!.text = mealBean.mealName
-        holder.mMealImage!!.setImageURI(mealBean.mealImage)
-        holder.mMealCategory!!.text = mealBean.mealCategory
-        holder.mMealPrice!!.text = rprice
-        holder.mLayout!!.setOnClickListener { v -> mPresenter.goToMealDetails(mealBean, rprice) }
+        holder.mMealName.text = mealBean.mealName
+        holder.mMealImage.setImageURI(mealBean.mealImage)
+        holder.mMealCategory.text = mealBean.mealCategory
+        holder.mMealPrice.text = rprice
+        holder.mLayout.setOnClickListener { v -> mPresenter.goToMealDetails(mealBean, rprice) }
     }
 
     override fun getItemCount(): Int {
         return mItems.size
     }
 
-    internal fun addInformations(mealInfo: List<MealBean>) {
+    fun addInformations(mealInfo: List<MealBean>) {
         mItems.addAll(mealInfo)
         notifyDataSetChanged()
     }
 
-    internal inner class DashboardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class DashboardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         @BindView(R.id.layout)
-        var mLayout: ConstraintLayout? = null
+        lateinit var mLayout: ConstraintLayout
 
         @BindView(R.id.dashboard_meal_name)
-        var mMealName: TextView? = null
+        lateinit var mMealName: TextView
 
         @BindView(R.id.dashboard_meal_price)
-        var mMealPrice: TextView? = null
+        lateinit var mMealPrice: TextView
 
         @BindView(R.id.dashboard_meal_category)
-        var mMealCategory: TextView? = null
+        lateinit var mMealCategory: TextView
 
         @BindView(R.id.dashboard_meal_image)
-        var mMealImage: SimpleDraweeView? = null
+        lateinit var mMealImage: SimpleDraweeView
 
         init {
 

@@ -69,7 +69,7 @@ public class MealDetailsActivity extends BaseActivity implements MealDetailsCont
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal_details);
         ButterKnife.bind(this);
-        DashboardComponent.Initializer.init(getApplicationComponent(), getActivityModule()).inject(this);
+        DashboardComponent.Initializer.Companion.init(getApplicationComponent(), getActivityModule()).inject(this);
         mPresenter.subscribe(this);
 
         if (getSupportActionBar() != null) {

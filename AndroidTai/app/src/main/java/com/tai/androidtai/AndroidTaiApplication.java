@@ -20,7 +20,7 @@ public class AndroidTaiApplication extends Application {
     }
 
     AndroidTaiComponent initializeApplicationComponent() {
-        return ApplicationComponent.Initializer.init(getApplicationContext());
+        return ApplicationComponent.Initializer.Companion.init(getApplicationContext());
     }
 
     public AndroidTaiComponent getApplicationComponent() {
