@@ -21,16 +21,4 @@ interface AndroidTaiComponent: AndroidInjector<DaggerApplication> {
 
     fun inject(networkModule: NetworkModule)
 
-    fun applicationContext(): Context
-
-    fun scheduler(): Scheduler
-
-    fun retrofit(): Retrofit
-
-    fun gson(): Gson
-
-    // put repositories here
-
-    fun dashboardRepository(): DashboardRepository
-
 }
