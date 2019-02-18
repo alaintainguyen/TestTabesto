@@ -7,10 +7,9 @@ import com.tai.androidtai.modules.userDetails.UserDetailsActivity
 
 class DashboardRouter : BaseRouter(), DashboardContract.Router {
 
-    override fun goToMealDetails(resultBean: ResultBean, price: String, view: DashboardContract.View?) {
+    override fun goToUserDetails(resultBean: ResultBean, view: DashboardContract.View?) {
         val intent = Intent(getActivity(view!!), UserDetailsActivity::class.java)
-        intent.putExtra("meal", resultBean)
-        intent.putExtra("price", price)
+        intent.putExtra("result", resultBean)
         getActivity(view)?.startActivity(intent)
     }
 }

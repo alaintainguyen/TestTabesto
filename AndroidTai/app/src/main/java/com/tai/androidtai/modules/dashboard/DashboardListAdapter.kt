@@ -30,14 +30,14 @@ class DashboardListAdapter internal constructor(private val mPresenter: Dashboar
         holder.mImage.setImageURI(resultBean.getImageUrl())
         holder.mStatus.text = resultBean.getStatus()
         holder.mGender.text = resultBean.getGender()
-//        holder.mLayout.setOnClickListener { v -> mPresenter.goToMealDetails(resultBean, rprice) }
+        holder.mLayout.setOnClickListener { mPresenter.goToUserDetails(resultBean) }
     }
 
     override fun getItemCount(): Int {
         return mItems.size
     }
 
-    fun addInformations(resultInfo: List<ResultBean>) {
+    fun addInformation(resultInfo: List<ResultBean>) {
         mItems.addAll(resultInfo)
         notifyDataSetChanged()
     }

@@ -44,7 +44,7 @@ class DashboardActivity : BaseActivity(), DashboardContract.View {
     }
 
     override fun displayInformation(userList: List<ResultBean>?) {
-        mDashboardListAdapter.addInformations(userList!!)
+        mDashboardListAdapter.addInformation(userList!!)
     }
 
 }

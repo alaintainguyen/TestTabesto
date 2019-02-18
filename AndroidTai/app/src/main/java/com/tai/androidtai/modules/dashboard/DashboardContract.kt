@@ -15,11 +15,11 @@ interface DashboardContract {
 
         fun getInfo()
 
-        fun goToMealDetails(resultBean: ResultBean, price: String)
+        fun goToUserDetails(resultBean: ResultBean)
     }
 
     interface Router : BaseContract.Router {
-        fun goToMealDetails(resultBean: ResultBean, price: String, view: View?)
+        fun goToUserDetails(resultBean: ResultBean, view: View?)
     }
 
 }

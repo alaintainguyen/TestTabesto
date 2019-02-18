@@ -48,6 +48,10 @@ class ResultBean private constructor(parcel: Parcel) : Parcelable {
         return 0
     }
 
+    fun getId(): Int {
+        return mId!!
+    }
+
     fun getName(): String {
         if (mName == null) {
             mName = ""
@@ -84,6 +88,7 @@ class ResultBean private constructor(parcel: Parcel) : Parcelable {
     }
 
     companion object {
+
         @SuppressLint("ParcelCreator")
         val CREATOR: Parcelable.Creator<ResultBean> = object : Parcelable.Creator<ResultBean> {
             override fun createFromParcel(parcel: Parcel): ResultBean {
