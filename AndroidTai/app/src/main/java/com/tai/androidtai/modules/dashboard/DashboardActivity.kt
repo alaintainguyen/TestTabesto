@@ -22,7 +22,7 @@ class DashboardActivity : BaseActivity(), DashboardContract.View {
     @BindView(R.id.dashboard_rv)
     lateinit var mDashboardRecyclerView: RecyclerView
 
-    lateinit var mDashboardListAdapter: DashboardListAdapter
+    private lateinit var mDashboardListAdapter: DashboardListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,8 +43,8 @@ class DashboardActivity : BaseActivity(), DashboardContract.View {
         mPresenter.unsubscribe(this)
     }
 
-    override fun displayInformation(userInfo: List<MealBean>) {
-        mDashboardListAdapter.addInformations(userInfo)
+    override fun displayInformation(userList: List<MealBean>) {
+        mDashboardListAdapter.addInformations(userList)
     }
 
     override fun hideProgressBar() {
