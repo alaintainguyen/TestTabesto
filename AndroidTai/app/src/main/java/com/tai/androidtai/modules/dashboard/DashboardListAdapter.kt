@@ -26,14 +26,11 @@ class DashboardListAdapter internal constructor(private val mPresenter: Dashboar
     }
 
     override fun onBindViewHolder(holder: DashboardViewHolder, position: Int) {
-        val r = Random()
-        val price = r.nextInt(10 - 2) + 2
-        val rprice = price.toString() + "€"
         val resultBean = mItems[position] as ResultBean
         holder.mMealName.text = resultBean.getName()
         holder.mMealImage.setImageURI(resultBean.getImageUrl())
         holder.mMealCategory.text = resultBean.getStatus()
-        holder.mMealPrice.text = rprice
+        holder.mMealPrice.text = resultBean.getGender()
 //        holder.mLayout.setOnClickListener { v -> mPresenter.goToMealDetails(resultBean, rprice) }
     }
 
