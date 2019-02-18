@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class NetworkModule {
 
     companion object {
-        private const val API_BASE = "https://www.themealdb.com/"
+        private const val API_BASE = "https://rickandmortyapi.com/"
     }
 
     @Provides

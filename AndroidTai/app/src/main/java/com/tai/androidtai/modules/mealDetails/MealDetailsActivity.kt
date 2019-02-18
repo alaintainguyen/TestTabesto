@@ -6,7 +6,7 @@ import android.widget.TextView
 
 import com.facebook.drawee.view.SimpleDraweeView
 import com.tai.androidtai.R
-import com.tai.androidtai.domain.bean.MealBean
+import com.tai.androidtai.domain.bean.ResultBean
 import com.tai.androidtai.modules.core.BaseActivity
 
 import javax.inject.Inject
@@ -15,7 +15,6 @@ import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import butterknife.BindView
 import butterknife.ButterKnife
-import butterknife.OnClick
 import dagger.android.AndroidInjection
 
 class MealDetailsActivity : BaseActivity(), MealDetailsContract.View {
@@ -83,19 +82,19 @@ class MealDetailsActivity : BaseActivity(), MealDetailsContract.View {
         displayAllMealInformation(intent.getParcelableExtra("meal"), intent.getStringExtra("price"))
     }
 
-    private fun displayAllMealInformation(mealBean: MealBean, price: String) {
-        mImage.setImageURI(mealBean.mealImage)
-        mVideo.setImageURI(mealBean.mealImage)
-        mTitle.text = mealBean.mealName
-        mLink.text = mealBean.mealLink
-        mArea.text = mealBean.mealArea
-        mCategory.text = mealBean.mealCategory
-        mDescription.text = mealBean.mealDescription
+    private fun displayAllMealInformation(resultBean: ResultBean, price: String) {
+        mImage.setImageURI(resultBean.mealImage)
+        mVideo.setImageURI(resultBean.mealImage)
+        mTitle.text = resultBean.mealName
+        mLink.text = resultBean.mealLink
+        mArea.text = resultBean.mealArea
+        mCategory.text = resultBean.mealCategory
+        mDescription.text = resultBean.mealDescription
         mPrice.text = price
-        mIngredient1.text = mealBean.mealIngredient1
-        mIngredient2.text = mealBean.mealIngredient2
-        mIngredient3.text = mealBean.mealIngredient3
-        mMovieLink = mealBean.mealYoutube
+        mIngredient1.text = resultBean.mealIngredient1
+        mIngredient2.text = resultBean.mealIngredient2
+        mIngredient3.text = resultBean.mealIngredient3
+        mMovieLink = resultBean.mealYoutube
     }
 
 }

@@ -3,7 +3,7 @@ package com.tai.androidtai.modules.dashboard
 import android.util.Log
 
 import com.tai.androidtai.domain.bean.DashBoardResponseBean
-import com.tai.androidtai.domain.bean.MealBean
+import com.tai.androidtai.domain.bean.ResultBean
 import com.tai.androidtai.domain.usecase.DashboardUseCase
 import com.tai.androidtai.modules.core.BaseContract
 import com.tai.androidtai.modules.core.BasePresenter
@@ -20,7 +20,7 @@ class DashboardPresenter(private val mRouter: DashboardContract.Router, private 
     }
 
     override fun getInfo() {
-        mDashboardUseCase.execute(GetInfoSubscriber(), DashboardUseCase.Params())
+        mDashboardUseCase.execute(GetInfoSubscriber(), null)
     }
 
     override fun subscribe(view: BaseContract.View) {
@@ -33,14 +33,14 @@ class DashboardPresenter(private val mRouter: DashboardContract.Router, private 
         }
     }
 
-    override fun goToMealDetails(mealBean: MealBean, price: String) {
-        mRouter.goToMealDetails(mealBean, price, mView)
+    override fun goToMealDetails(resultBean: ResultBean, price: String) {
+        mRouter.goToMealDetails(resultBean, price, mView)
     }
 
     private inner class GetInfoSubscriber : ResourceObserver<DashBoardResponseBean>() {
 
         override fun onNext(@NonNull dashBoardResponseBean: DashBoardResponseBean) {
-            mView?.displayInformation(dashBoardResponseBean.list)
+            mView?.displayInformation(dashBoardResponseBean.mResultBean)
             mView?.hideProgressBar()
         }
 

@@ -20,7 +20,7 @@ constructor(retrofit: Retrofit) {
     }
 
     private interface LoginService {
-        @get:GET("api/json/v1/1/latest.php")
+        @get:GET("api/character/")
         val info: Observable<DashBoardResponseBean>
     }
 }

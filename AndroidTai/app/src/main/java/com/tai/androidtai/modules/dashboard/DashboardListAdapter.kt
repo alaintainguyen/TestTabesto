@@ -7,7 +7,7 @@ import android.widget.TextView
 
 import com.facebook.drawee.view.SimpleDraweeView
 import com.tai.androidtai.R
-import com.tai.androidtai.domain.bean.MealBean
+import com.tai.androidtai.domain.bean.ResultBean
 
 import java.util.ArrayList
 import java.util.Random
@@ -29,7 +29,7 @@ class DashboardListAdapter internal constructor(private val mPresenter: Dashboar
         val r = Random()
         val price = r.nextInt(10 - 2) + 2
         val rprice = price.toString() + "€"
-        val mealBean = mItems[position] as MealBean
+        val mealBean = mItems[position] as ResultBean
         holder.mMealName.text = mealBean.mealName
         holder.mMealImage.setImageURI(mealBean.mealImage)
         holder.mMealCategory.text = mealBean.mealCategory
@@ -41,8 +41,8 @@ class DashboardListAdapter internal constructor(private val mPresenter: Dashboar
         return mItems.size
     }
 
-    fun addInformations(mealInfo: List<MealBean>) {
-        mItems.addAll(mealInfo)
+    fun addInformations(resultInfo: List<ResultBean>) {
+        mItems.addAll(resultInfo)
         notifyDataSetChanged()
     }
 

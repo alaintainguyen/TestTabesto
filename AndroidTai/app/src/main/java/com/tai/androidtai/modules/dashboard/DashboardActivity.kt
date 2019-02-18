@@ -3,7 +3,7 @@ package com.tai.androidtai.modules.dashboard
 import android.os.Bundle
 
 import com.tai.androidtai.R
-import com.tai.androidtai.domain.bean.MealBean
+import com.tai.androidtai.domain.bean.ResultBean
 import com.tai.androidtai.modules.core.BaseActivity
 
 import javax.inject.Inject
@@ -43,8 +43,8 @@ class DashboardActivity : BaseActivity(), DashboardContract.View {
         mPresenter.unsubscribe(this)
     }
 
-    override fun displayInformation(userList: List<MealBean>) {
-        mDashboardListAdapter.addInformations(userList)
+    override fun displayInformation(userList: List<ResultBean>?) {
+        mDashboardListAdapter.addInformations(userList!!)
     }
 
     override fun hideProgressBar() {

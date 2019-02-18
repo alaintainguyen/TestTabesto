@@ -6,19 +6,19 @@ import android.os.Parcelable
 
 import com.google.gson.annotations.SerializedName
 
-class MealBean private constructor(parcel: Parcel) : Parcelable {
+class ResultBean private constructor(parcel: Parcel) : Parcelable {
 
-    @SerializedName("strMeal")
+    @SerializedName("name")
     private var mMealName: String? = null
 
-    @SerializedName("strMealThumb")
-    private var mMealImage: String? = null
+    @SerializedName("status")
+    private var mStatus: String? = null
 
-    @SerializedName("strCategory")
-    private var mMealCategory: String? = null
+    @SerializedName("species")
+    private var mSpecies: String? = null
 
-    @SerializedName("strInstructions")
-    private var mMealDescription: String? = null
+    @SerializedName("gender")
+    private var mGender: String? = null
 
     @SerializedName("strArea")
     private var mMealArea: String? = null
@@ -48,26 +48,26 @@ class MealBean private constructor(parcel: Parcel) : Parcelable {
 
     val mealImage: String
         get() {
-            if (mMealImage == null) {
-                mMealImage = ""
+            if (mStatus == null) {
+                mStatus = ""
             }
-            return mMealImage!!
+            return mStatus!!
         }
 
     val mealCategory: String
         get() {
-            if (mMealCategory == null) {
-                mMealCategory = ""
+            if (mSpecies == null) {
+                mSpecies = ""
             }
-            return mMealCategory!!
+            return mSpecies!!
         }
 
     val mealDescription: String
         get() {
-            if (mMealDescription == null) {
-                mMealDescription = ""
+            if (mGender == null) {
+                mGender = ""
             }
-            return mMealDescription!!
+            return mGender!!
         }
 
     val mealArea: String
@@ -120,9 +120,9 @@ class MealBean private constructor(parcel: Parcel) : Parcelable {
 
     init {
         mMealName = parcel.readString()
-        mMealImage = parcel.readString()
-        mMealCategory = parcel.readString()
-        mMealDescription = parcel.readString()
+        mStatus = parcel.readString()
+        mSpecies = parcel.readString()
+        mGender = parcel.readString()
         mMealArea = parcel.readString()
         mMealIngredient1 = parcel.readString()
         mMealIngredient2 = parcel.readString()
@@ -133,9 +133,9 @@ class MealBean private constructor(parcel: Parcel) : Parcelable {
 
     override fun writeToParcel(dest: Parcel, flags: Int) {
         dest.writeString(mMealName)
-        dest.writeString(mMealImage)
-        dest.writeString(mMealCategory)
-        dest.writeString(mMealDescription)
+        dest.writeString(mStatus)
+        dest.writeString(mSpecies)
+        dest.writeString(mGender)
         dest.writeString(mMealArea)
         dest.writeString(mMealIngredient1)
         dest.writeString(mMealIngredient2)
@@ -150,12 +150,12 @@ class MealBean private constructor(parcel: Parcel) : Parcelable {
 
     companion object {
         @SuppressLint("ParcelCreator")
-        val CREATOR: Parcelable.Creator<MealBean> = object : Parcelable.Creator<MealBean> {
-            override fun createFromParcel(parcel: Parcel): MealBean {
-                return MealBean(parcel)
+        val CREATOR: Parcelable.Creator<ResultBean> = object : Parcelable.Creator<ResultBean> {
+            override fun createFromParcel(parcel: Parcel): ResultBean {
+                return ResultBean(parcel)
             }
 
-            override fun newArray(size: Int): Array<MealBean?> {
+            override fun newArray(size: Int): Array<ResultBean?> {
                 return arrayOfNulls(size)
             }
         }

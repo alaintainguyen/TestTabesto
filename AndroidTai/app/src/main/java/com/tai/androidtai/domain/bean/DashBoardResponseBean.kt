@@ -8,16 +8,23 @@ import com.google.gson.annotations.SerializedName
 
 class DashBoardResponseBean : Parcelable {
 
-    @SerializedName("meals")
-    lateinit var list: List<MealBean>
+    @SerializedName("results")
+    var mResultBean: List<ResultBean>
 
     private constructor(parcel: Parcel) {
+        mResultBean = parcel.createTypedArrayList(ResultBean.CREATOR)
     }
 
-    override fun writeToParcel(dest: Parcel, flags: Int) {}
+    override fun writeToParcel(dest: Parcel, flags: Int) {
+        dest.writeTypedList<ResultBean>(mResultBean)
+    }
 
     override fun describeContents(): Int {
         return 0
+    }
+
+    fun getResultList(): List<ResultBean> {
+        return mResultBean
     }
 
     companion object {
