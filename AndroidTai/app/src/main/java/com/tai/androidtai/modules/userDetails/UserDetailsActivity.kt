@@ -39,6 +39,9 @@ class UserDetailsActivity : BaseActivity(), UserDetailsContract.View {
     @BindView(R.id.user_name)
     lateinit var mName: TextView
 
+    @BindView(R.id.user_origin)
+    lateinit var mOrigin: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_details)
@@ -63,6 +66,7 @@ class UserDetailsActivity : BaseActivity(), UserDetailsContract.View {
         mStatus.text = resultBean.getStatus()
         mGender.text = resultBean.getGender()
         mSpecies.text = resultBean.getSpecies()
+        mOrigin.text = resultBean.getOrigin().getName()
     }
 
 }

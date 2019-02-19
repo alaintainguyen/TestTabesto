@@ -1,9 +1,7 @@
 package com.tai.androidtai.domain.bean
 
-import android.annotation.SuppressLint
 import android.os.Parcel
 import android.os.Parcelable
-
 import com.google.gson.annotations.SerializedName
 
 class ResultBean private constructor(parcel: Parcel) : Parcelable {
@@ -26,6 +24,9 @@ class ResultBean private constructor(parcel: Parcel) : Parcelable {
     @SerializedName("image")
     private var mImageUrl: String? = ""
 
+    @SerializedName("origin")
+    private var mOrigin: OriginBean? = null
+
     init {
         mId = parcel.readInt()
         mName = parcel.readString()
@@ -33,6 +34,7 @@ class ResultBean private constructor(parcel: Parcel) : Parcelable {
         mSpecies = parcel.readString()
         mGender = parcel.readString()
         mImageUrl = parcel.readString()
+        mOrigin = parcel.readParcelable(OriginBean::class.java.classLoader)
     }
 
     override fun writeToParcel(dest: Parcel, flags: Int) {
@@ -42,6 +44,7 @@ class ResultBean private constructor(parcel: Parcel) : Parcelable {
         dest.writeString(mSpecies)
         dest.writeString(mGender)
         dest.writeString(mImageUrl)
+        dest.writeParcelable(mOrigin, flags)
     }
 
     override fun describeContents(): Int {
@@ -85,6 +88,10 @@ class ResultBean private constructor(parcel: Parcel) : Parcelable {
             mImageUrl = ""
         }
         return mImageUrl!!
+    }
+
+    fun getOrigin(): OriginBean {
+        return mOrigin!!
     }
 
     companion object {

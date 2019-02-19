@@ -6,12 +6,12 @@ import android.os.Parcelable
 
 import com.google.gson.annotations.SerializedName
 
-class DashBoardResponseBean : Parcelable {
+class DashBoardResponseBean private constructor(parcel: Parcel) : Parcelable {
 
     @SerializedName("results")
     var mResultBean: List<ResultBean>
 
-    private constructor(parcel: Parcel) {
+    init {
         mResultBean = parcel.createTypedArrayList(ResultBean.CREATOR)
     }
 
