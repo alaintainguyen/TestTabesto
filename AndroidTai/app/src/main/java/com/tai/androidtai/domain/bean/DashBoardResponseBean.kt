@@ -28,7 +28,7 @@ class DashBoardResponseBean private constructor(parcel: Parcel) : Parcelable {
     }
 
     companion object {
-        @SuppressLint("ParcelCreator")
+        @JvmField
         val CREATOR: Parcelable.Creator<DashBoardResponseBean> = object : Parcelable.Creator<DashBoardResponseBean> {
             override fun createFromParcel(parcel: Parcel): DashBoardResponseBean {
                 return DashBoardResponseBean(parcel)

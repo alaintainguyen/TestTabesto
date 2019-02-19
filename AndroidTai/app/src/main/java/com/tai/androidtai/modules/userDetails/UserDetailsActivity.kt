@@ -1,20 +1,16 @@
 package com.tai.androidtai.modules.userDetails
 
 import android.os.Bundle
-
 import android.widget.TextView
-
+import androidx.appcompat.widget.Toolbar
+import butterknife.BindView
+import butterknife.ButterKnife
 import com.facebook.drawee.view.SimpleDraweeView
 import com.tai.androidtai.R
 import com.tai.androidtai.domain.bean.ResultBean
 import com.tai.androidtai.modules.core.BaseActivity
-
-import javax.inject.Inject
-
-import androidx.appcompat.widget.Toolbar
-import butterknife.BindView
-import butterknife.ButterKnife
 import dagger.android.AndroidInjection
+import javax.inject.Inject
 
 class UserDetailsActivity : BaseActivity(), UserDetailsContract.View {
 

@@ -1,18 +1,14 @@
 package com.tai.androidtai
 
 import android.app.Activity
-import android.app.Application
-
+import androidx.annotation.VisibleForTesting
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.tai.androidtai.dagger.components.AndroidTaiComponent
 import com.tai.androidtai.dagger.components.ApplicationComponent
-
-import javax.inject.Inject
-
-import androidx.annotation.VisibleForTesting
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.DaggerApplication
+import javax.inject.Inject
 
 class AndroidTaiApplication : DaggerApplication() {
 

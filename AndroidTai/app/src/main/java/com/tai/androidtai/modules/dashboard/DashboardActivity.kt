@@ -1,18 +1,15 @@
 package com.tai.androidtai.modules.dashboard
 
 import android.os.Bundle
-
-import com.tai.androidtai.R
-import com.tai.androidtai.domain.bean.ResultBean
-import com.tai.androidtai.modules.core.BaseActivity
-
-import javax.inject.Inject
-
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
 import butterknife.ButterKnife
+import com.tai.androidtai.R
+import com.tai.androidtai.domain.bean.ResultBean
+import com.tai.androidtai.modules.core.BaseActivity
 import dagger.android.AndroidInjection
+import javax.inject.Inject
 
 class DashboardActivity : BaseActivity(), DashboardContract.View {
 
@@ -25,7 +22,6 @@ class DashboardActivity : BaseActivity(), DashboardContract.View {
     private lateinit var mDashboardListAdapter: DashboardListAdapter
     private var mCurrentPage = 1
     private var isLoading = false
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +36,7 @@ class DashboardActivity : BaseActivity(), DashboardContract.View {
         mDashboardRecyclerView.adapter = mDashboardListAdapter
         mPresenter.getInfo(mCurrentPage)
 
+        // Scroll infini
         mDashboardRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)

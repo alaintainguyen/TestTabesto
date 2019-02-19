@@ -11,10 +11,8 @@ interface UserDetailsContract {
 
     interface Presenter : BaseContract.Presenter {
         fun getUserDetailsInformation(userId: Int?)
-
     }
 
     interface Router : BaseContract.Router {
-
     }
 }
