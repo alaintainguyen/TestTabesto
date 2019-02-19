@@ -10,11 +10,13 @@ import io.reactivex.Observable
 import io.reactivex.Scheduler
 
 @PerActivity
-class DashboardUseCase @Inject
+class DashboardUseCase
+
+@Inject
 internal constructor(postExecutionThread: Scheduler, private val mRepository: DashboardRepository) : UseCase<DashBoardResponseBean, Void>(postExecutionThread) {
 
     override fun buildObservable(params: Void?): Observable<DashBoardResponseBean> {
-        return mRepository.info
+        return mRepository.getInfo()
     }
 
 }

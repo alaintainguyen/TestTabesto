@@ -1,26 +1,37 @@
 package com.tai.androidtai.domain.repository
 
 import com.tai.androidtai.domain.bean.DashBoardResponseBean
-
-import javax.inject.Inject
-
+import com.tai.androidtai.domain.bean.ResultBean
 import io.reactivex.Observable
 import retrofit2.Retrofit
 import retrofit2.http.GET
+import retrofit2.http.Path
+import javax.inject.Inject
 
 class DashboardRepository @Inject
 constructor(retrofit: Retrofit) {
 
-    private val mService: LoginService
-
-    val info: Observable<DashBoardResponseBean> get() = mService.info
+    private val mService: DashboardService
 
     init {
-        mService = retrofit.create(LoginService::class.java)
+        mService = retrofit.create(DashboardService::class.java)
     }
 
-    private interface LoginService {
-        @get:GET("api/character/?page=1")
-        val info: Observable<DashBoardResponseBean>
+    fun getInfo(): Observable<DashBoardResponseBean> {
+        return mService.getInfo()
+    }
+
+    fun getUserDetails(id: Int): Observable<ResultBean> {
+        return mService.getUserDetails(id)
+    }
+
+    private interface DashboardService {
+
+        @GET("api/character/?page=1")
+        fun getInfo(): Observable<DashBoardResponseBean>
+
+        @GET("api/character/{id}")
+        fun getUserDetails(@Path("id") id: Int): Observable<ResultBean>
+
     }
 }

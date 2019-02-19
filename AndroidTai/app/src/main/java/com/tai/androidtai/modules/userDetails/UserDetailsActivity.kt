@@ -18,6 +18,10 @@ import dagger.android.AndroidInjection
 
 class UserDetailsActivity : BaseActivity(), UserDetailsContract.View {
 
+    companion object {
+        const val USER_ID: String = "id"
+    }
+
     @Inject
     lateinit var mPresenter: UserDetailsContract.Presenter
 
@@ -57,10 +61,11 @@ class UserDetailsActivity : BaseActivity(), UserDetailsContract.View {
         mToolbar.setNavigationIcon(R.drawable.back_arrow)
         mToolbar.setNavigationOnClickListener { finish() }
 
-        displayAllUserInformation(intent.getParcelableExtra("result"))
+        val userId = intent.getIntExtra(USER_ID, 0)
+        mPresenter.getUserDetailsInformation(userId)
     }
 
-    private fun displayAllUserInformation(resultBean: ResultBean) {
+    override fun displayAllUserInformation(resultBean: ResultBean) {
         mImage.setImageURI(resultBean.getImageUrl())
         mName.text = resultBean.getName()
         mStatus.text = resultBean.getStatus()
@@ -70,4 +75,3 @@ class UserDetailsActivity : BaseActivity(), UserDetailsContract.View {
     }
 
 }
-
