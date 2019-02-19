@@ -23,6 +23,9 @@ class DashboardActivity : BaseActivity(), DashboardContract.View {
     lateinit var mDashboardRecyclerView: RecyclerView
 
     private lateinit var mDashboardListAdapter: DashboardListAdapter
+    private var mCurrentPage = 1
+    private var isLoading = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +38,28 @@ class DashboardActivity : BaseActivity(), DashboardContract.View {
         val layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         mDashboardRecyclerView.layoutManager = layoutManager
         mDashboardRecyclerView.adapter = mDashboardListAdapter
-        mPresenter.getInfo()
+        mPresenter.getInfo(mCurrentPage)
+
+        mDashboardRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                val visibleItemCount = layoutManager.childCount
+                val totalItemCount = layoutManager.itemCount
+                val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
+                if (!isLoading) {
+                    if (visibleItemCount + firstVisibleItemPosition >= totalItemCount && firstVisibleItemPosition >= 0) {
+                        loadMoreContact()
+                    }
+                }
+            }
+        })
+    }
+
+    private fun loadMoreContact() {
+        isLoading = true
+        mCurrentPage += 1
+        mPresenter.getInfo(mCurrentPage)
     }
 
     override fun onDestroy() {
@@ -44,6 +68,7 @@ class DashboardActivity : BaseActivity(), DashboardContract.View {
     }
 
     override fun displayInformation(userList: List<ResultBean>?) {
+        isLoading = false;
         mDashboardListAdapter.addInformation(userList!!)
     }
 

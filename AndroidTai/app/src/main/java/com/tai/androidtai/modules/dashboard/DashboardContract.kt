@@ -13,7 +13,7 @@ interface DashboardContract {
 
     interface Presenter : BaseContract.Presenter {
 
-        fun getInfo()
+        fun getInfo(currentPage: Int)
 
         fun goToUserDetails(resultBean: ResultBean)
     }

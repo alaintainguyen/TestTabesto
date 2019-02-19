@@ -6,6 +6,7 @@ import io.reactivex.Observable
 import retrofit2.Retrofit
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 import javax.inject.Inject
 
 class DashboardRepository @Inject
@@ -17,8 +18,8 @@ constructor(retrofit: Retrofit) {
         mService = retrofit.create(DashboardService::class.java)
     }
 
-    fun getInfo(): Observable<DashBoardResponseBean> {
-        return mService.getInfo()
+    fun getInfo(currentPage: Int): Observable<DashBoardResponseBean> {
+        return mService.getInfo(currentPage)
     }
 
     fun getUserDetails(id: Int): Observable<ResultBean> {
@@ -27,8 +28,8 @@ constructor(retrofit: Retrofit) {
 
     private interface DashboardService {
 
-        @GET("api/character/?page=1")
-        fun getInfo(): Observable<DashBoardResponseBean>
+        @GET("api/character/")
+        fun getInfo(@Query("page") currentPage: Int): Observable<DashBoardResponseBean>
 
         @GET("api/character/{id}")
         fun getUserDetails(@Path("id") id: Int): Observable<ResultBean>

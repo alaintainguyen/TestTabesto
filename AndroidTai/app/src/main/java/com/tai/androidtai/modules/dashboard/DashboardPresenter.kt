@@ -19,8 +19,8 @@ class DashboardPresenter(private val mRouter: DashboardContract.Router, private 
         private val TAG = DashboardPresenter::class.java.simpleName
     }
 
-    override fun getInfo() {
-        mDashboardUseCase.execute(GetInfoSubscriber(), null)
+    override fun getInfo(currentPage: Int) {
+        mDashboardUseCase.execute(GetInfoSubscriber(), currentPage)
     }
 
     override fun subscribe(view: BaseContract.View) {
