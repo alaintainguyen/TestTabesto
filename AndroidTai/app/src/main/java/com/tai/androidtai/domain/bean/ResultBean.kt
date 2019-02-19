@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName
 class ResultBean private constructor(parcel: Parcel) : Parcelable {
 
     @SerializedName("id")
-    private var mId: Int? = null
+    private var mId: Int? = 0
 
     @SerializedName("name")
     private var mName: String? = ""
@@ -88,8 +88,7 @@ class ResultBean private constructor(parcel: Parcel) : Parcelable {
     }
 
     companion object {
-
-        @SuppressLint("ParcelCreator")
+        @JvmField
         val CREATOR: Parcelable.Creator<ResultBean> = object : Parcelable.Creator<ResultBean> {
             override fun createFromParcel(parcel: Parcel): ResultBean {
                 return ResultBean(parcel)

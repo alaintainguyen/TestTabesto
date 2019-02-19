@@ -47,6 +47,7 @@ class UserDetailsActivity : BaseActivity(), UserDetailsContract.View {
         mPresenter.subscribe(this)
 
         setSupportActionBar(mToolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
